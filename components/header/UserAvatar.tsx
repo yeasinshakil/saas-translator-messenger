@@ -7,8 +7,8 @@ const UserAvatar = ({
   image,
   className,
 }: {
-  name: string;
-  image?: string;
+  name?: string | null;
+  image?: string | null;
   className?: string;
 }) => {
   return (
@@ -16,19 +16,21 @@ const UserAvatar = ({
       {image && (
         <Image
           src={image}
-          alt={name}
+          alt={name ? name : ""}
           width={40}
           height={40}
           className=" rounded-full"
         />
       )}
 
-      <AvatarFallback>
-        {name
-          .split(" ")
-          .map((n) => n[0])
-          .join("")}
-      </AvatarFallback>
+      {name && (
+        <AvatarFallback>
+          {name
+            .split(" ")
+            .map((n) => n[0])
+            .join("")}
+        </AvatarFallback>
+      )}
     </Avatar>
   );
 };

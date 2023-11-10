@@ -3,6 +3,8 @@ import { getServerSession } from "next-auth";
 import DarkModeToggle from "./DarkModeToggle";
 import Logo from "./Logo";
 import UserButton from "./UserButton";
+import { MessagesSquare } from "lucide-react";
+import Link from "next/link";
 
 const Header = async () => {
   const session = await getServerSession(authOptions);
@@ -19,9 +21,17 @@ const Header = async () => {
 
           ) */}
 
+          {session ? (
+            <Link href={"/chat"}>
+              <MessagesSquare className=" text-black dark:text-white" />
+            </Link>
+          ) : (
+            <Link href={"/pricing"}>Pricing</Link>
+          )}
+
           {/* Darkmode toggle button */}
           <DarkModeToggle />
-          <UserButton />
+          <UserButton session={session} />
 
           {/* User Icon */}
         </div>
