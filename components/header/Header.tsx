@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import UserButton from "./UserButton";
 import { MessagesSquare } from "lucide-react";
 import Link from "next/link";
+import CreateChatButton from "./CreateChatButton";
 
 const Header = async () => {
   const session = await getServerSession(authOptions);
@@ -22,9 +23,12 @@ const Header = async () => {
           ) */}
 
           {session ? (
-            <Link href={"/chat"}>
-              <MessagesSquare className=" text-black dark:text-white" />
-            </Link>
+            <>
+              <Link href={"/chat"}>
+                <MessagesSquare className=" text-black dark:text-white" />
+              </Link>
+              <CreateChatButton />
+            </>
           ) : (
             <Link href={"/pricing"}>Pricing</Link>
           )}
