@@ -37,7 +37,7 @@ const tiers = [
 ];
 
 const PricingCards = ({ redirect }: { redirect: boolean }) => {
-  console.log(redirect);
+  // console.log(redirect);
   return (
     <div>
       <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
