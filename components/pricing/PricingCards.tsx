@@ -1,6 +1,7 @@
-import { CheckIcon, Link } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 import React from "react";
 import CheckoutButton from "./CheckoutButton";
+import Link from "next/link";
 
 const tiers = [
   {
@@ -36,6 +37,7 @@ const tiers = [
 ];
 
 const PricingCards = ({ redirect }: { redirect: boolean }) => {
+  console.log(redirect);
   return (
     <div>
       <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
@@ -90,15 +92,14 @@ const PricingCards = ({ redirect }: { redirect: boolean }) => {
               <Link
                 href="/register"
                 className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold
-               leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 
-               focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
+                 leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
+                 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
               >
                 Get Started Today
               </Link>
             ) : (
               tier.id && <CheckoutButton />
             )}
-            "
           </div>
         ))}
       </div>
