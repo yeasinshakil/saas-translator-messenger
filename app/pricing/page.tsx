@@ -42,7 +42,7 @@ const page = () => {
       </div>
       <div className="flow-root bg-white pb-24 sm:pb-32">
         <div className="-mt-80">
-          <PricingCards />
+          <PricingCards redirect={true} />
         </div>
       </div>
     </div>
