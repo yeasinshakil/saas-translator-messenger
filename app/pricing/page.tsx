@@ -1,7 +1,12 @@
+import { authOptions } from "@/auth";
 import PricingCards from "@/components/pricing/PricingCards";
+import { getServerSession } from "next-auth";
 import React from "react";
 
-const page = () => {
+const page = async () => {
+  const session = await getServerSession(authOptions);
+  // console.log(session);
+
   return (
     <div className="isolate overflow-hidden bg-gray-900">
       <div className="mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8">
